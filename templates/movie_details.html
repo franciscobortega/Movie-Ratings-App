@@ -2,6 +2,17 @@
 endblock %} {% block body %}
 <h1>{{ movie.title }}</h1>
 
+<h2>Rate this movie:</h2>
+<form action="/new-rating" method="POST">
+  <input type="hidden" name="movie" value="{{movie.title}}" />
+
+  <p>Score <input type="number" name="score" min="0" max="5" /></p>
+
+  <p>
+    <input type="submit" />
+  </p>
+</form>
+
 <p>{{ movie.overview }}</p>
 
 <img src="{{ movie.poster_path }}" />
